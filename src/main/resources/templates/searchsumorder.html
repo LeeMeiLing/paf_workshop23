@@ -11,21 +11,21 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h3>Search An Order</h3>
+                <h3>Search Sum Order</h3>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <form data-th-action="@{/orders/search}" method="post" data-th-object="${searchObject}">
+                <form data-th-action="@{/orders/total}" method="get" >
                     <div class="mb-3">
                       <label for="" class="form-label">Order ID</label>
                       <input type="number"
-                        class="form-control" name="" id="" placeholder="order ID" data-th-field="*{orderId}">
+                        class="form-control" name="orderId" id="" placeholder="order ID" >
                         <br><br>
-                        <span class="alert alert-warning" data-th-if="${#fields.hasErrors('global')}">
-                            <span  data-th-each="err:${#fields.errors('global')}" data-th-text="${err}"></span>
+                        <span class="alert alert-warning" data-th-if="${notFound}">
+                            <span data-th-text="${notFound}"></span>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

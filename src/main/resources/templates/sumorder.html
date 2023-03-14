@@ -11,31 +11,29 @@
     <div class="container">
         <div class="row">
             <div class="col-sm">
-                <h3>Order List</h3>
+                <h3>Order Details</h3>
                 <br><br>
             </div>
         </div>
     
-    <div class="container" data-th-if="${not #lists.isEmpty(orders)}">
+    <div class="container" data-th-if="${sumOrder}">
         <table class="table table-hover table-responsive-md">
             <thead>
                 <tr>
                     <th>Order Id</th>
                     <th>Order Date</th>
                     <th>Customer Id</th>
-                    <th>Product Id</th>
                     <th>Total Price</th>
                     <th>Cost Price</th>
                 </tr>
             </thead>
             <tbody>
-                <tr data-th-each="order : ${orders}">
-                    <td><span data-th-text="${order.orderId}"></span></td>
-                    <td><span data-th-text="${order.orderDate}"></span></td>
-                    <td><span data-th-text="${order.customerId}"></span></td>
-                    <td><span data-th-text="${order.productId}"></span></td>
-                    <td><span data-th-text="${order.totalPrice}"></span></td>
-                    <td><span data-th-text="${order.costPrice}"></span></td>
+                <tr data-th-object="${sumOrder}">
+                    <td><span data-th-text="*{orderId}"></span></td>
+                    <td><span data-th-text="*{orderDate}"></span></td>
+                    <td><span data-th-text="*{customerId}"></span></td>
+                    <td><span data-th-text="*{totalPriceSum}"></span></td>
+                    <td><span data-th-text="*{costPriceSum}"></span></td>
                     
             </tbody>
         </table>
