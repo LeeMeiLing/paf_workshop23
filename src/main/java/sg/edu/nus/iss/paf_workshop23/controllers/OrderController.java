@@ -65,7 +65,7 @@ public class OrderController {
         
         try{
             SumOrder sumOrder = orts.sumOrderById(orderId);
-            model.addAttribute("sumOrder", sumOrder); // sumOrder is not null if ID not found, but the fields are null
+            model.addAttribute("sumOrder", sumOrder); // sumOrder is not null if ID not found, but the fields are null, html use data-th-if to check if object is empty
             return "sumorder";
         }catch(HttpClientErrorException ex){
             if(HttpStatus.NOT_FOUND == ex.getStatusCode()){
